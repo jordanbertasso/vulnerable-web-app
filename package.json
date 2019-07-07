@@ -1,0 +1,22 @@
+{
+  "name": "vulnerable-web-app",
+  "version": "1.0.0",
+  "description": "An intentionally vulnerable web application. Designed to be exploited by beginners.",
+  "main": "app/src/js/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "mkdir app/db; nodemon app/src/js/server.js"
+  },
+  "author": "Jordan Bertasso",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.5",
+    "express-session": "^1.16.2",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
