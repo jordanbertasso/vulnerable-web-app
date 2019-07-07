@@ -7,7 +7,7 @@
 npm start
 ```
 
-#### Full docker build (Includes linux backend)
+#### Full docker build (Includes Linux backend)
 ```
 docker build -t vulnerable-web-app .
 
