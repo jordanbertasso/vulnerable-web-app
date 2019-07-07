@@ -4,6 +4,7 @@
 
 #### Web app only
 ```
+npm install
 npm start
 ```
 
@@ -14,7 +15,8 @@ docker build -t vulnerable-web-app .
 docker run -p 80:8080 vulnerable-web-app
 ```
 \
-Then navigate to http://0.0.0.0:8080/
+Then navigate to http://0.0.0.0:8080/ for the web version
+http://0.0.0.0:80/ for the docker version.
 
 ## About
 
