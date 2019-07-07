@@ -22,7 +22,7 @@ This is an intentionally vulnerable web application, *duh*.
 
 
 #### Features:
-* Login page vulnerable to SQL injection (eventually vulnerable to SQLMap)
+* Login page vulnerable to SQL injection (eventually vulnerable to sqlmap)
 * Upload page where reverse shells (or other files) may be uploaded for Remote Code Execution
 * Privilege escalation on the Linux backend (still undecided on the best way to do this)
 
@@ -43,8 +43,8 @@ The top tools that I would like to be used while completing this are:
 * Nmap
 * Netcat
 * Burp Suite
-* SQLMap
-* Gobuster/Wfuzz or similar
+* sqlmap
+* Gobuster/wfuzz or similar
 * John the Ripper/Hashcat
 * LinEnum or similar
 
@@ -59,7 +59,7 @@ This will be used as a tool when introducing penetration testing.
 My initial idea was:
 1. Discover web-app via `Nmap`
 2. Perform directory enumeration to discover login page using `Gobuster`
-3. Achieve SQL Injection (either manually or via `SQLMap`) to either login or obtain hashed password
+3. Achieve SQL Injection (either manually or via `sqlmap`) to either login or obtain hashed password
 4. If hashes were obtained, use `John` or `Hashcat` to crack them and then login
 5. Upload and execute reverse shell using `Netcat`
 6. Perform local privilege using `LinEnum` to obtain root
