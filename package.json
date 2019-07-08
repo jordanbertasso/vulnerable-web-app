@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "An intentionally vulnerable web application. Designed to be exploited by beginners.",
   "main": "app/src/js/server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jordanbertasso/vulnerable-web-app.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "mkdir app/db; nodemon app/src/js/server.js"
