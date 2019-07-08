@@ -1,4 +1,5 @@
 const sqlite3 = require("sqlite3").verbose();
+const md5 = require("md5");
 
 const db = new sqlite3.Database("app/db/web-db.db");
 
@@ -13,7 +14,11 @@ db.serialize(function() {
     }
   ).run(
     // Would like this to contain hashes eventually so that it may be dumped via SQLMap
-    "INSERT INTO users (username, password) VALUES ('admin', 'youWillNeverGuessThisAwesomelyLongPassword'), ('jordan', 'nonyabusiness'), ('chris', 'alsononyabusiness'), ('hackmac', 'gimmetheflag')",
+    `INSERT INTO users (username, password) VALUES ('admin', '${md5(
+      "youWillNeverGuessThisAwesomelyLongPassword"
+    )}'), ('jordan', '${md5("nonyabusiness")}'), ('chris', '${md5(
+      "alsononyabusiness"
+    )}'), ('hackmac', '${md5("gimmetheflag")}')`,
     err => {
       if (err) {
         return console.error(err.message);
