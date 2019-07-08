@@ -5,6 +5,7 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 // Initialise app and router
 const app = express();
@@ -38,13 +39,16 @@ const upload = require("./routes/upload.js");
 const uploads = require("./routes/uploads.js");
 const auth = require("./routes/auth.js");
 
+app.use(express.static(path.join(__dirname + "/../public")));
+
+console.log(path.join(__dirname + "/../public"));
+
 app.use("/", login);
 app.use("/home", home);
 app.use("/upload", upload);
 app.use("/uploads/*", uploads);
 app.use("/auth", auth);
 
-app.use("/", router);
 app.listen(PORT, HOST);
 
 console.log(`Listening on http://${HOST}:${PORT}`);
