@@ -15,7 +15,7 @@ db.serialize(function() {
   ).run(
     // Would like this to contain hashes eventually so that it may be dumped via SQLMap
     `INSERT INTO users (username, password) VALUES ('admin', '${md5(
-      "youWillNeverGuessThisAwesomelyLongPassword"
+      "jupiter"
     )}'), ('jordan', '${md5("nonyabusiness")}'), ('chris', '${md5(
       "alsononyabusiness"
     )}'), ('hackmac', '${md5("gimmetheflag")}')`,
