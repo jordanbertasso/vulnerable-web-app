@@ -49,7 +49,9 @@ router.post("/auth", function(request, response) {
     db.serialize(function() {
       // Check if username and password exist
       db.get(
-        `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`,
+        `SELECT * FROM users WHERE username = '${username}' AND password = '${md5(
+          password
+        )}'`,
         (err, row) => {
           if (err) {
             response.send("Invalid username or password");
