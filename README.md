@@ -23,7 +23,7 @@ This is an intentionally vulnerable web application, *duh*.
 
 
 #### Features:
-* Login page vulnerable to SQL injection (eventually vulnerable to sqlmap)
+* Login page vulnerable to SQL injection - works well with sqlmap
 * Upload page where reverse shells (or other files) may be uploaded for Remote Code Execution
 * Privilege escalation on the Linux backend (still undecided on the best way to do this)
 
