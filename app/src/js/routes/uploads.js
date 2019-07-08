@@ -1,6 +1,5 @@
 const app = require("express");
 const router = app.Router();
-const path = require("path");
 
 router.get("/", (req, res) => {
   const filename = req.baseUrl.split("/")[2];

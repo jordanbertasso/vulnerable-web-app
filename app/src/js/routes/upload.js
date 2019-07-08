@@ -1,7 +1,6 @@
 const app = require("express");
 const router = app.Router();
 const path = require("path");
-const fileUpload = require("express-fileupload");
 
 router.post("/", function(req, res) {
   let uploadedFile = req.files.file;
