@@ -6,6 +6,7 @@ const fileUpload = require("express-fileupload");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const path = require("path");
+const md5 = require("md5");
 
 // Import database
 const db = require("./db.js");
@@ -82,7 +83,7 @@ router.post("/auth", function(request, response) {
 router.get("/home", function(request, response) {
   console.log(request.session.loggedin);
   if (request.session.loggedin) {
-    response.sendFile(path.join(__dirname + "../static/html/home.html"));
+    response.sendFile(path.join(__dirname + "/../static/html/home.html"));
   } else {
     response.send("Please login to view this page!");
   }
