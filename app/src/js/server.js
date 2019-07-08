@@ -9,7 +9,8 @@ const path = require("path");
 const md5 = require("md5");
 
 // Import database
-const db = require("./db.js");
+const dblib = require("./db.js");
+const db = dblib.db;
 
 // Constants
 const HOST = process.env.HOST;
@@ -27,6 +28,7 @@ app.use(
     saveUninitialized: true
   })
 );
+app.enable("trust proxy");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(fileUpload());
@@ -61,6 +63,14 @@ router.post("/auth", function(request, response) {
           if (row != undefined) {
             request.session.loggedin = true;
             request.session.username = username;
+
+            dblib.addDetails(
+              username,
+              request.ip,
+              request.headers["user-agent"]
+            );
+            console.log(request.ip);
+            console.log(request.headers["user-agent"]);
             response.redirect("/home");
           } else {
             console.log("Invalid login");

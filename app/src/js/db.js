@@ -12,19 +12,45 @@ db.serialize(function() {
         return console.log(err.message);
       }
     }
-  ).run(
-    // Would like this to contain hashes eventually so that it may be dumped via SQLMap
-    `INSERT INTO users (username, password) VALUES ('admin', '${md5(
-      "jupiter"
-    )}'), ('jordan', '${md5("nonyabusiness")}'), ('chris', '${md5(
-      "alsononyabusiness"
-    )}'), ('hackmac', '${md5("gimmetheflag")}')`,
+  )
+    .run(
+      "CREATE TABLE IF NOT EXISTS userDetails(users_id INTEGER PRIMARY KEY, username TEXT, ipAddress TEXT, userAgent TEXT)",
+      err => {
+        if (err) {
+          return console.log(err.message);
+        }
+      }
+    )
+    .run(
+      // Would like this to contain hashes eventually so that it may be dumped via SQLMap
+      `INSERT INTO users (username, password) VALUES ('admin', '${md5(
+        "jupiter"
+      )}'), ('jordan', '${md5("nonyabusiness")}'), ('chris', '${md5(
+        "alsononyabusiness"
+      )}'), ('hackmac', '${md5("gimmetheflag")}')`,
+      err => {
+        if (err) {
+          return console.error(err.message);
+        }
+      }
+    );
+});
+
+function addDetails(username, ipAddress, userAgent) {
+  db.run(
+    `INSERT INTO userDetails (username, ipAddress, userAgent) VALUES ('${username}', '${ipAddress}', '${userAgent}')`,
     err => {
       if (err) {
-        return console.error(err.message);
+        return console.log(err.message);
       }
     }
   );
-});
+}
 
-module.exports = db;
+// module.exports = { db, addDetails };
+
+// module.exports = db;
+module.exports = {
+  db: db,
+  addDetails: addDetails
+};
