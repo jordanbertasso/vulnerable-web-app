@@ -5,8 +5,6 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const path = require("path");
-const md5 = require("md5");
 
 // Initialise app and router
 const app = express();
