@@ -3,8 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // Import database
-const dblib = require("../db.js");
-const db = dblib.db;
+const db = require("../db.js");
 
 router.post("/", function(request, response) {
   var username = request.body.username;
