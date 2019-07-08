@@ -4,6 +4,7 @@ const md5 = require("md5");
 const db = new sqlite3.Database("app/db/web-db.db");
 
 // Create users table and insert some users
+// Create userDetails table
 db.serialize(function() {
   db.run(
     "CREATE TABLE IF NOT EXISTS users(users_id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT)",
@@ -36,21 +37,4 @@ db.serialize(function() {
     );
 });
 
-function addDetails(username, ipAddress, userAgent) {
-  db.run(
-    `INSERT INTO userDetails (username, ipAddress, userAgent) VALUES ('${username}', '${ipAddress}', '${userAgent}')`,
-    err => {
-      if (err) {
-        return console.log(err.message);
-      }
-    }
-  );
-}
-
-// module.exports = { db, addDetails };
-
-// module.exports = db;
-module.exports = {
-  db: db,
-  addDetails: addDetails
-};
+module.exports = db;
