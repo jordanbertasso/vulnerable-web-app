@@ -9,7 +9,6 @@ const path = require("path");
 
 // Initialise app and router
 const app = express();
-const router = express.Router();
 
 // Constants
 const HOST = process.env.HOST;
