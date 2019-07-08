@@ -11,10 +11,6 @@ const path = require("path");
 const app = express();
 const router = express.Router();
 
-// Import database
-const dblib = require("./db.js");
-const db = dblib.db;
-
 // Constants
 const HOST = process.env.HOST;
 const PORT = process.env.PORT;
