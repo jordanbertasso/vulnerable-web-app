@@ -1,0 +1,45 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  background: #222;
+}
+
+form {
+  margin: auto;
+  border: 1px solid #ffff;
+  border-radius: 5px;
+}
+
+.custom-file-upload {
+  border: 2px solid #222;
+  color: #222;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-family: arial;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 1em;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input[type="submit"] {
+  border: 2px solid #222;
+  color: #222;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-family: arial;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 1em;
+}

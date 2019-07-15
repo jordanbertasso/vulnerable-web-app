@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="home/home.css" />
     <title>Uploads</title>
   </head>
   <body>
     <form action="/upload" enctype="multipart/form-data" method="POST">
-      <input type="file" name="file" accept="*" />
-      <input type="submit" />
+      <label class="custom-file-upload">
+        <input type="file" name="file" accept="*" />
+        Choose File
+      </label>
+      <input class="btn" type="submit" />
     </form>
   </body>
 </html>
